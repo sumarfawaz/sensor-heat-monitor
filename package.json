@@ -1,0 +1,17 @@
+{
+  "name": "sensor-heat-monitor",
+  "version": "1.0.0",
+  "description": "PAT project for monitoring my server heat when it exceeds the threshold. MERN STACK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.3"
+  }
+}
