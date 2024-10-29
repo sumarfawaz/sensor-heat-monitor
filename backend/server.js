@@ -1,17 +1,29 @@
-const express = require('express');
-const cors = require('cors');
+const SerialPort = require('serialport').SerialPort;
+const sp = new SerialPort({path: "COM3", baudRate: 115200});
 
-const app = express();
-const PORT = process.env.PORT || 5000;
+const sent_data = '\x45';
 
-app.use(cors()); // Enable CORS for cross-origin requests
-app.use(express.json()); // Parse JSON data
+sp.on("open", function() {
+    console.log("port has opened");
 
-// API route example
-app.get('/api/temperature', (req, res) => {
-  res.json({ temperature: 24.5 }); // Example temperature data
+    sp.write(sent_data, function(err){
+        if(err){
+            return console.log('Error on write', err.message);
+        }
+        console.log('Port.write: ', sent_data);
+    });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+sp.on('data', function(data){
+    // decoding uint8Array to string
+    var enc = new TextDecoder();
+    var arr = new Uint8Array(data);
+    ready = enc.decode(arr)
+
+    console.log('Data received: ', ready);
+});
+
+// Read data that is available but keep the stream from entering "flowing mode"
+sp.on('readable', function () {
+    console.log('Data2:', sp.read());
 });
