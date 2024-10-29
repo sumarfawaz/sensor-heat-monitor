@@ -73,4 +73,4 @@ If your application deploys successfully http://localhost:3000/ at this address.
 
 # Screenshots 
 
-![Alt text](assets/frontend results.png)
+![Alt text](assets/frontend-results.png)
