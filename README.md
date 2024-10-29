@@ -71,3 +71,6 @@ npm start
 If your application deploys successfully http://localhost:3000/ at this address. You will be able to see the temperature and the humidity real-time. Feel free to customize the threshold to meet your requirements. 
 
 
+# Screenshots 
+
+![Alt text](relative-path-to-image)
